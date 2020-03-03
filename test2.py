@@ -1,23 +1,22 @@
 from SearchPoint import SearchPoint
 import math
 
-print("Введите ширину начальной сетки: ")
+print("Введите ширину начальной сетки w: ")
 net_w = int(input())
 x_up_lim = net_w
 x_down_lim = 0
-print("Введите высоту начальной сетки: ")
+print("Введите высоту начальной сетки h: ")
 net_h = int(input())
 y_up_lim = net_h
 y_down_lim = 0
-print("Введите координату X: ")
+print("Введите координату x0: ")
 srch_x = int(input())
-print("Введите координату Y: ")
+print("Введите координату y0: ")
 srch_y = int(input())
 
 SP = SearchPoint(net_w, net_h)
 result = SP.where_is_point(srch_x,srch_y)
 while result:
-    print(str(srch_x)+" "+str(srch_y)+" "+result)
     if result.find("L") >= 0:
         x_up_lim = srch_x
         srch_x = srch_x - math.ceil((srch_x-x_down_lim)/2)
@@ -30,5 +29,6 @@ while result:
     elif result.find("U") >= 0:
         y_down_lim = srch_y
         srch_y = srch_y + math.ceil((y_up_lim-srch_y)/2)
+    print(str(srch_x)+" "+str(srch_y))
     result = SP.where_is_point(srch_x,srch_y)
 print("Искомая точка: ("+str(srch_x)+", "+str(srch_y)+")")
