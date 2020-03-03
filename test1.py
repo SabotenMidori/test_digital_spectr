@@ -31,7 +31,7 @@ for number in car_numbers:
             #Если поймали ошибку преобразования в число, значит, с концовкой номера не все хорошо
             except:
                 continue
-            if 2 <= len(last_digits) <=3:
+            if 2 <= len(last_digits) <= 3:
                 valid_numbers.append(number)
     #сюда упадет, если мы попробуем посмотреть в элемент строки, которого нет, т.е. строка слишком короткая
     except:
@@ -41,4 +41,3 @@ for number in car_numbers:
 print("Результат отсеивания условием:")
 for number in valid_numbers:
     print(number)
-valid_numbers = []
